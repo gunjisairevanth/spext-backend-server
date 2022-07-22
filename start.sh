@@ -5,4 +5,4 @@
 
 echo "Starting python"
 # ls
-python3 run.py
+gunicorn --bind 0.0.0.0:5000 run:app
