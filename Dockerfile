@@ -25,7 +25,7 @@ COPY models /src/models
 COPY services /src/services
 COPY static /src/static
 COPY templates /src/templates
-COPY .env /src/.env
+COPY .env-sample /src/.env
 
 # COPYING NGINX CONFIG FILE
 COPY nginx.conf /src/nginx.conf
