@@ -62,6 +62,12 @@ def login():
         else:
             return render_template('login.html', msg=response['message']) 
 
+@app.route('/transcode_completed', methods = ['POST'])  
+def transcode():
+    payload = request.get_json(silent=True)
+    response = videos_details.transcoding_completed(payload)
+    return response
+
 
 if __name__ == '__main__':
     app.run(debug = True)

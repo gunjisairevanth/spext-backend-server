@@ -135,7 +135,8 @@
                     <link rel="stylesheet" href="{{ url_for('static', filename='css/controlbar.css') }}">
                     <script>
                         (function(){
-                            var url = "https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd";
+                            // var url = "https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd";
+                            var url = "https://spext-global-cdn.staytools.com/user_uploads/15c43439-827f-4aa5-bb27-63c47d011b6e/result/my_video_manifest.mpd";
                             var player = dashjs.MediaPlayer().create();
                             player.initialize(document.querySelector("#videoPlayer"), url, true);
                         })();

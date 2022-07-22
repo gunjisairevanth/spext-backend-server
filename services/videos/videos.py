@@ -29,4 +29,19 @@ class videos:
             res.append(temp)
         return json.dumps(res)
 
+    def transcoding_completed(self, payload):
+
+        query = {
+            "s3_file_path" : payload['s3_file_path']
+        }
+
+        response = videoInformation.objects(**query)
+        if len(response)!=0:
+            payload = {
+                "transcode_status" : 1
+            }
+            videoInformation.objects(**query).update(**payload)
+
+        return {}
+
 videos_details = videos()
