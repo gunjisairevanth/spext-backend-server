@@ -27,10 +27,6 @@ COPY static /src/static
 COPY templates /src/templates
 COPY .env-sample /src/.env
 
-# COPYING NGINX CONFIG FILE
-COPY nginx.conf /src/nginx.conf
-COPY nginx.conf /etc/nginx/sites-enabled/default
-RUN chown www-data.www-data /src/nginx.conf
 
 #Copying start script to run app
 ADD start.sh /src/start.sh
