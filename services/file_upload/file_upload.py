@@ -27,7 +27,7 @@ class fileUpload:
                 "account_id" : payload.form['account_id'],
                 "video_title": payload.form['title'],
                 "video_id" : str(uuid.uuid4()),
-                "is_public" : (1 if payload.form['public_access'] == 'on' else 0),
+                "is_public" : (1 if payload.form['public_access'] == 'yes' else 0),
                 "public_url" : str(uuid.uuid4()),
                 "transcode_status" : 0,
                 "s3_file_path" : file_path,

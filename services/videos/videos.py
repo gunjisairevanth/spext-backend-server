@@ -46,7 +46,8 @@ class videos:
 
     def view(self,params):
         query = {
-            "public_url" : params['v']
+            "public_url" : params['v'],
+            "is_public" : 1
         }
         response = videoInformation.objects(**query)
         if len(response)!=0:

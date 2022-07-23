@@ -24,7 +24,7 @@ def success():
     if request.method == 'POST':  
         f = request.files['file']
         content_type = request.mimetype 
-        print(upload_to_s3.upload_to_s3(file_data=f, file_name=f.filename, content_type=content_type, payload=request))
+        upload_to_s3.upload_to_s3(file_data=f, file_name=f.filename, content_type=content_type, payload=request)
         return render_template("success.html", name = f.filename) 
 
 @app.route('/register_page')  

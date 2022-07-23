@@ -144,11 +144,13 @@ input:checked + .slider:before {
                 <script>
                     document.getElementById("account_id").value=localStorage.getItem("account_id");
                 </script>
-                <h2>Public Access</h2>
-                <label class="switch">
-                <input type="checkbox" name="public_access">
-                <span class="slider"></span>
-                </label>
+
+                  <h2>Public Access</h2>
+                  <input type="radio" name="public_access" value="yes">
+                  <label for="fname">Yes</label><br>
+                  <input type="radio" name="public_access" value="no">
+                  <label for="fname">No</label><br>
+                              
                 <br>
                 <br>
                 <br>
