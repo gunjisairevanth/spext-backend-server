@@ -1,8 +1,15 @@
 
-function player_url_update(url,title,views,transcode_status){
+function player_url_update(url,title,views,transcode_status, public_url){
 
     var lastIndex = url.lastIndexOf("/");
     url = url.substring(0, lastIndex);
+    if (public_url!=""){
+        let public_url_c= "http://127.0.0.1:5000/view?v="+public_url
+        document.getElementById('video_puplic_url').innerHTML = "<p> Public Url : - <a href="+public_url_c+">"+ public_url_c + "</a></p>";
+    }
+    else{
+        document.getElementById('video_puplic_url').innerHTML = "<p>Public Url : -</p>"
+    }
     if(transcode_status==1){
         document.getElementById('video_player_block').innerHTML = '<video id="videoPlayer" controls ></video>';  
         let video_url = "https://spext-global-cdn.staytools.com/"+url+"/result/output_manifest.mpd";

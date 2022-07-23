@@ -44,4 +44,20 @@ class videos:
 
         return {}
 
+    def view(self,params):
+        query = {
+            "public_url" : params['v']
+        }
+        response = videoInformation.objects(**query)
+        if len(response)!=0:
+            videoInformation.objects(**query)
+            videoInformation.objects(**query).update_one(inc__views=1)
+            return {
+                "s3_file_path" : response[0]['s3_file_path'],
+                "views" : response[0]['views']+1,
+                "video_title" : response[0]['video_title']
+            }
+        else:
+            return ""
+
 videos_details = videos()

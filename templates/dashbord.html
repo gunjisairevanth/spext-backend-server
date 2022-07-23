@@ -32,12 +32,13 @@
                             <p id="views">0 Views</p>
                             <h2 id="video_title">Sample Video</h2>
                         </div>
+                        <p id="video_puplic_url"></p>
                 </div>
 
                 <div class="other_videos">
                     <p>Videos</p>
                         {% for dict_item in records %}
-                            <div class="item" onclick="player_url_update(url='{{dict_item.s3_file_path}}',title='{{dict_item.video_title}}',views='{{dict_item.views}}', transcode_status='{{dict_item.transcode_status}}');">
+                            <div class="item" onclick="player_url_update(url='{{dict_item.s3_file_path}}',title='{{dict_item.video_title}}',views='{{dict_item.views}}', transcode_status='{{dict_item.transcode_status}}', public_url='{{dict_item.public_url}}');">
                                 <p>{{dict_item['video_title']}}</p>
                             </div>
                         {% endfor %} 

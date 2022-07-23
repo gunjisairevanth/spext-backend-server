@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+    <script src="{{ url_for('static', filename='js/ControlBar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dash.all.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashbord.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/controlbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashbord.css') }}">
+    </head>
+    <body>
+            <div class="video_block">
+                <div class="video_player">
+                   
+                        <div id="video_player_block">
+                            <video id="videoPlayer" controls ></video>
+                        </div>
+                        <script>
+                            let url = '{{s3_url}}';
+                            var lastIndex = url.lastIndexOf("/");
+                            url = url.substring(0, lastIndex);
+                            let video_url = "https://spext-global-cdn.staytools.com/"+url+"/result/output_manifest.mpd";
+                            var player = dashjs.MediaPlayer().create();
+                            player.initialize(document.querySelector("#videoPlayer"), video_url, true);
+                        </script>
+
+                        
+                        <div >
+                            <p id="views">{{views}} Views</p>
+                            <h2 id="video_title">{{title}}</h2>
+                        </div>
+                        <p id="video_puplic_url"></p>
+                </div>
+
+          </div>
+    </body>
+   
+</html>

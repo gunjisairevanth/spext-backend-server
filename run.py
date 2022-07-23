@@ -68,6 +68,12 @@ def transcode():
     response = videos_details.transcoding_completed(payload)
     return response
 
+@app.route('/view', methods = ['GET'])  
+def view():
+    query_params = request.args.to_dict(flat=True)
+    response = videos_details.view(query_params)
+    return render_template('view.html', s3_url=response['s3_file_path'], title=response['video_title'], views=response['views']) 
+
 
 if __name__ == '__main__':
     app.run()
