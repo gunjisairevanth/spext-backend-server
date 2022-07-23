@@ -72,7 +72,10 @@ def transcode():
 def view():
     query_params = request.args.to_dict(flat=True)
     response = videos_details.view(query_params)
-    return render_template('view.html', s3_url=response['s3_file_path'], title=response['video_title'], views=response['views']) 
+    if response == "":
+        return render_template('view.html', s3_url="private/test.mp4", title="Private Video", views=0) 
+    else:
+        return render_template('view.html', s3_url=response['s3_file_path'], title=response['video_title'], views=response['views']) 
 
 
 if __name__ == '__main__':
